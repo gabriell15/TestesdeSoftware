@@ -63,6 +63,10 @@ context('Orange HRM', () => {
 
     }); 
 //comentarios estao aqui aqui aqui
+    it('ddd', () => {
+        cy.get().click()
+        
+    });
     it('Verificação de opção Reset', () => {
         cy.get(':nth-child(2) > .oxd-input').type("Daniel")
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
