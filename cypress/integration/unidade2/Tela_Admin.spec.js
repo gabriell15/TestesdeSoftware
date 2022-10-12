@@ -65,6 +65,8 @@ context('Orange HRM', () => {
 //comentarios estao aqui aqui aqui
     it('ddd', () => {
         cy.get().click()
+        //aqui sera feita ekmfejnfaf
+        //jndejfnejfe
         
     });
     it('Verificação de opção Reset', () => {
