@@ -62,7 +62,7 @@ context('Orange HRM', () => {
        cy.get('.orangehrm-horizontal-padding').contains('No Records Found')
 
     }); 
-
+//comentarios estao aqui aqui aqui
     it('Verificação de opção Reset', () => {
         cy.get(':nth-child(2) > .oxd-input').type("Daniel")
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
@@ -70,7 +70,7 @@ context('Orange HRM', () => {
         cy.get('.oxd-autocomplete-text-input > input').click().type("Daniel Oliveira")
         cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
         cy.contains('Enable').should('be.visible').click()
-        cy.get('.oxd-button--ghost').click({force: true})
+        cy.get('.oxd-button--ghost').click({force: true}) 
 
         //cy.get(':nth-child(2) > .oxd-input').contains(null)
         cy.get(':nth-child(2) > .oxd-input').should('have.value', '');
