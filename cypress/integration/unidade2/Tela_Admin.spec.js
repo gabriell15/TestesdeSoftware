@@ -140,7 +140,7 @@ context('Orange HRM', () => {
         cy.contains('Enable').should('be.visible').click()
         cy.get('.oxd-button--ghost').click({force: true}) 
 
-        //cy.get(':nth-child(2) > .oxd-input').contains(null)
+        //cy.get(':nth-child(2) > .oxd-input').contains(null)'
         cy.get(':nth-child(2) > .oxd-input').should('have.value', '');
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text-input').contains('-- Select --').should('be.visible')
        
