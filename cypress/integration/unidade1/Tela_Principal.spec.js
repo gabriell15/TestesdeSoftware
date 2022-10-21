@@ -13,17 +13,18 @@ context('Orange HRM', () => {
         cy.wait(3000)
     });
 
+
+    it.only('Verificação de URL correta', () => {
+        cy.url()
+        .should('be.equal', 'https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList')
+    });
+
+
     it('Verificação de logout', () => {
         cy.get('.oxd-userdropdown-tab > .oxd-icon').click()
         cy.get(':nth-child(4) > .oxd-userdropdown-link').click()
         
     });
-
-    it.only('Verificação de página correta', () => {
-        cy.url()
-        .should('be.equal', 'https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList')
-    });
-
     
     it('Verificando outras opções de perfil', () => {
         cy.get('.oxd-userdropdown-tab > .oxd-icon').click()
@@ -38,7 +39,7 @@ context('Orange HRM', () => {
         
     });
 
-    it('Verificação de opções do menu vertical', () => {
+    it('Verificação de nomes das opções do menu vertical', () => {
         
         cy.get(':nth-child(1) > .oxd-main-menu-item > .oxd-text').contains('Admin').should('be.visible')
         cy.get(':nth-child(2) > .oxd-main-menu-item > .oxd-text').contains('PIM').should('be.visible')

@@ -15,9 +15,9 @@ Funcionalidade: Testes da tela de login
         Então deve ser redirecionado para a tela principal logado
 
 
-    Cenario: Verificar opção Forgot your password?
+    Cenario: Verificar opção Forgot your password? para URL
         Quando o usuário clica na opção '<Forgot your password?>'
-        Então ele deve ser redirecionado para a página de recuperação de senha
+        Então ele deve ser redirecionado para a página com URL correta de recuperação de senha
 
     Cenario: Recuperando senha
         E o usuário clica na opção '<Forgot your password?>'
