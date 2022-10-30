@@ -14,7 +14,7 @@ context('Orange HRM', () => {
     });
 
 
-    it.only('Verificação de URL correta', () => {
+    it('Verificação de URL correta', () => {
         cy.url()
         .should('be.equal', 'https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList')
     });
@@ -39,7 +39,7 @@ context('Orange HRM', () => {
         
     });
 
-    it('Verificação de nomes das opções do menu vertical', () => {
+    it.only('Verificação de nomes das opções do menu vertical', () => {
         
         cy.get(':nth-child(1) > .oxd-main-menu-item > .oxd-text').contains('Admin').should('be.visible')
         cy.get(':nth-child(2) > .oxd-main-menu-item > .oxd-text').contains('PIM').should('be.visible')
@@ -55,7 +55,7 @@ context('Orange HRM', () => {
 
     });
 
-    it('Verificação de redirecionamento de opções do menu vertical', () => {
+    it.only('Verificação de redirecionamento de opções do menu vertical', () => {
         cy.get(':nth-child(1) > .oxd-main-menu-item').contains('Admin').should('be.visible').click()
         cy.wait(3000)
         cy.get(':nth-child(2) > .oxd-main-menu-item').contains('PIM').should('be.visible').click()

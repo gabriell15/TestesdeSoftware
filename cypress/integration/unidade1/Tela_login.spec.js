@@ -17,7 +17,7 @@ context('Orange HRM', () => {
         cy.get('.oxd-alert-content > .oxd-text').contains('Invalid credentials').should('be.visible')
     });
     
-    it('Realizando login', () => {
+    it.only('Realizando login', () => {
 
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').click().type("Admin")
         cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').click().type("admin123")
@@ -26,14 +26,14 @@ context('Orange HRM', () => {
     });
 
 
-    it('Verificar redirecionamento de opção Forgot your password? para URL', () => {
+    it.only('Verificar redirecionamento de opção Forgot your password? para URL', () => {
         cy.get('.orangehrm-login-forgot > .oxd-text').click()
         cy.url()
         .should('be.equal', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode')
         
     });
 
-    it('Recuperando senha', () => {
+    it.only('Recuperando senha', () => {
       
         cy.get('.orangehrm-login-forgot > .oxd-text').click()
         cy.get('.oxd-input').click().type("Admin")
