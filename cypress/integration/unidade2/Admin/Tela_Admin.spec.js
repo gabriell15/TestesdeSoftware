@@ -39,11 +39,11 @@ context('Orange HRM', () => {
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(3)').contains('Organization').should('be.visible')
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(4)').contains('Qualifications').should('be.visible')
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(5)').contains('More').should('be.visible')
-        cy.get('.oxd-grid-4 > :nth-child(1)').contains('Username').should('be.visible')
+      
  
     });
 
-    it('Verificação de nomes de campos a serem preenchidos', () => {
+it('Verificação de nomes de campos a serem preenchidos', () => {
         cy.get(':nth-child(1) > .oxd-main-menu-item').click()
         cy.wait(3000)
 
@@ -77,7 +77,7 @@ it('Cadastrar registro', () => {
 
     
 });
-    it('Procurar por registro incorreto', () => {
+it('Procurar por registro incorreto', () => {
         cy.get(':nth-child(1) > .oxd-main-menu-item').click()
         cy.wait(3000)
 
@@ -85,7 +85,9 @@ it('Cadastrar registro', () => {
         cy.get(':nth-child(2) > .oxd-input').type("Daniel")
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
         cy.get('.oxd-select-dropdown > :nth-child(3)').contains('ESS').should('be.visible').click()
-        cy.get('.oxd-autocomplete-text-input > input').click().type("Daniel Oliveira")
+        cy.get('.oxd-autocomplete-text-input > input').click().type("Aa")
+        cy.wait(3000)
+        cy.get('.oxd-autocomplete-option').click()
         cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
         cy.contains('Enable').should('be.visible').click()
        cy.get('.oxd-form-actions > .oxd-button--secondary').contains('Search').click({force: true}) 
@@ -93,48 +95,45 @@ it('Cadastrar registro', () => {
 
     }); 
 
-    it('Procurar por registro válido', () => {
+it('Procurar por registro válido', () => { 
         cy.get(':nth-child(1) > .oxd-main-menu-item').click()
         cy.wait(3000)
 
         cy.get(':nth-child(2) > .oxd-input').click()
-        cy.get(':nth-child(2) > .oxd-input').type("Peter Silva")
+        cy.get(':nth-child(2) > .oxd-input').type("Admin")
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
         cy.get('.oxd-select-dropdown > :nth-child(2)').contains('Admin').should('be.visible').click()
-       cy.get('.oxd-autocomplete-text-input > input').click().type("Odis Adalwin")
         cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
         cy.contains('Enable').should('be.visible').click()
        cy.get('.oxd-form-actions > .oxd-button--secondary').contains('Search').click({force: true}) 
        cy.get('.oxd-table-card > .oxd-table-row').should('be.visible')
-       cy.get('.oxd-table-card > .oxd-table-row > :nth-child(2) > div').contains('Peter Silva').should('be.visible')
+       cy.get('.oxd-table-card > .oxd-table-row > :nth-child(2) > div').contains('Admin').should('be.visible')
        cy.get('.oxd-table-card > .oxd-table-row > :nth-child(3) > div').contains('Admin').should('be.visible')
-       cy.get('.oxd-table-card > .oxd-table-row > :nth-child(4) > div').contains('Odis Adalwin').should('be.visible')
        cy.get('.oxd-table-card > .oxd-table-row > :nth-child(5) > div').contains('Enable').should('be.visible')
 
       
        
     }); 
 
-    it('Verificação de redirecionamento da opção edição de cadastro', () => {
+it('Verificação de redirecionamento da opção edição de cadastro', () => {
         cy.get(':nth-child(1) > .oxd-main-menu-item').click()
         cy.wait(3000)
 
         cy.get(':nth-child(2) > .oxd-input').click()
-        cy.get(':nth-child(2) > .oxd-input').type("Peter Silva")
+        cy.get(':nth-child(2) > .oxd-input').type("Admin")
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
         cy.get('.oxd-select-dropdown > :nth-child(2)').contains('Admin').should('be.visible').click()
-        cy.get('.oxd-autocomplete-text-input > input').click().type("Odis Adalwin")
         cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
         cy.contains('Enable').should('be.visible').click()
        cy.get('.oxd-form-actions > .oxd-button--secondary').contains('Search').click({force: true}) 
-       cy.get(':nth-child(1) > .oxd-table-row > :nth-child(6) > .oxd-table-cell-actions > :nth-child(2) > .oxd-icon').click()
+       cy.get('.oxd-table-cell-actions > :nth-child(2)').click({force: true})
 
-        cy.url().should('be.equal', 'https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveSystemUser/40')
+        cy.url().should('be.equal', 'https://opensource-demo.orangehrmlive.com/web/index.php/admin/saveSystemUser/1')
         });
 
 
 
-     it('Redirecionamento de cancelar edição', () => {
+it('Redirecionamento de cancelar edição', () => {
             cy.get(':nth-child(1) > .oxd-main-menu-item').click()
 
             cy.get(':nth-child(1) > .oxd-table-row > :nth-child(6) > .oxd-table-cell-actions > :nth-child(2)', {timeout: 15000}).click({force: true})
@@ -145,31 +144,27 @@ it('Cadastrar registro', () => {
         });
 
 
-    it('Edição de dado ja cadastrado', () => {
+it('Edição de dado ja cadastrado', () => {
         cy.get(':nth-child(1) > .oxd-main-menu-item').click()
         cy.wait(3000)
 
         cy.get(':nth-child(2) > .oxd-input').click()
-        cy.get(':nth-child(2) > .oxd-input').type("Peter Silva")
-        cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
-        cy.get('.oxd-select-dropdown > :nth-child(2)').contains('Admin').should('be.visible').click()
-        cy.get('.oxd-autocomplete-text-input > input').click().type("Odis Adalwin")
-        cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text').click()
-        cy.get('.oxd-select-dropdown > :nth-child(2)').contains('Enabled').should('be.visible').click()
-
-        cy.get('.oxd-form-actions > .oxd-button--secondary').contains('Search').click({force: true}) 
-        cy.get('.oxd-table-cell-actions > :nth-child(2)').click()
-        cy.get(':nth-child(2) > .oxd-input').click().type(' Santos')
-        cy.wait(3000)
+        cy.get(':nth-child(2) > .oxd-input').type("Admin")
+        cy.get(':nth-child(1) > .oxd-table-row > :nth-child(6) > .oxd-table-cell-actions > :nth-child(2)').click({force: true})
+       cy.wait(3000)
+        cy.get(':nth-child(2) > .oxd-input').click().clear().type('Alvez Editado')
+        cy.get('.oxd-grid-2').click()
+        cy.wait(2000)
 
        cy.get('.oxd-button--secondary').click() 
-      
     
         cy.wait(6000)
 
+        cy.contains('Alvez Editado', {timeout: 15000}).should('be.visible')
+
     });
 
-    it.only('Verificação de opção Reset', () => {
+it.only('Verificação de opção Reset', () => {
         cy.get(':nth-child(1) > .oxd-main-menu-item').click()
         cy.wait(3000)
         

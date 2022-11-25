@@ -10,7 +10,7 @@ context('Orange HRM', () => {
         cy.wait(3000)
     });
 
-    it('Redirecionamento para URL correta', () => {
+    it.only('Redirecionamento para URL correta', () => {
         
 
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(2)').click()
@@ -22,18 +22,19 @@ context('Orange HRM', () => {
 
     });
 
-    it.only('Editar turno de trabalho', () => {
+    it('Adicionar turno de trabalho', () => {
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(2)').click()
         cy.get('.oxd-dropdown-menu > :nth-child(5)', {timeout: 15000}).click()
         cy.wait(3000)
 
-        cy.get(':nth-child(1) > .oxd-table-row > :nth-child(6) > .oxd-table-cell-actions > :nth-child(2)').click()
+        cy.get('.oxd-button').click()
+        cy.wait(3000)
+
+        cy.get(':nth-child(2) > .oxd-input').click().type('General')
         cy.get(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-time-wrapper > .oxd-time-input > .oxd-input').click().clear().type('08:30 AM')
 
         cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-time-wrapper > .oxd-time-input > .oxd-input').click().clear().type('06:30 PM')
-        cy.get(':nth-child(4) > .oxd-grid-2', {timeout: 15000}).click()
-        cy.get('.oxd-input-group > :nth-child(2) > .oxd-text').contains('10.00').should('be.visible')
-        cy.get('.oxd-button--secondary').contains('Save').click()
+        cy.get('.oxd-button--secondary').click()
         cy.wait(4000)
        
         cy.get(':nth-child(1) > .oxd-table-row > :nth-child(2) > div').contains('General').should('be.visible')

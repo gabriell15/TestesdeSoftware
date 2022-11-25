@@ -21,7 +21,7 @@ context('Orange HRM', () => {
       cy.wait(3000)
     });
 
-    it('Editar trabalho', () => {
+    it.only('Editar trabalho', () => {
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(2)').click()
         cy.get('.oxd-dropdown-menu > :nth-child(1)', {timeout: 15000}).click()
   

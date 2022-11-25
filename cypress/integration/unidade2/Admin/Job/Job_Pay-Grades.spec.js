@@ -10,7 +10,7 @@ context('Orange HRM', () => {
         cy.wait(3000)
     });
 
-    it('Redirecionamento para URL correta', () => {
+    it.only('Redirecionamento para URL correta', () => {
         
 
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(2)').click()
@@ -22,7 +22,7 @@ context('Orange HRM', () => {
 
     });
 
-    it('Editar nome de Nota de Pagamento', () => {
+    it.only('Editar nome de Nota de Pagamento', () => {
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(2)').click()
         cy.get('.oxd-dropdown-menu > :nth-child(2)', {timeout: 15000}).click()
         cy.get(':nth-child(1) > .oxd-table-row > [style="flex-shrink: 1;"] > .oxd-table-cell-actions > :nth-child(2)', {timeout: 15000}).click()
@@ -38,7 +38,7 @@ context('Orange HRM', () => {
         
     });
 
-    it.only('Editar Salario Minimo e Salario Maximo', () => {
+    it('Editar Salario Minimo e Salario Maximo', () => {
         cy.get('.oxd-topbar-body-nav > ul > :nth-child(2)').click()
         cy.get('.oxd-dropdown-menu > :nth-child(2)', {timeout: 15000}).click()
 

@@ -5,7 +5,7 @@ Funcionalidade: Testes da tela principal
         Quando o usuário loga no site
 
     Cenário: Verificação de URL correta
-    Então ele deve estar na página correta de tela principal
+        Então ele deve estar na página correta de tela principal
 
     Cenário: Verificação de logout
         Quando o usuário clica no ícone de perfil
